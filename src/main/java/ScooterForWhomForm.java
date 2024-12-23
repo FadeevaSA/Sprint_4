@@ -25,6 +25,10 @@ public class ScooterForWhomForm {
     private final By fieldPhone = By.xpath(".//input[@placeholder='* Телефон: на него позвонит курьер']");
     //Локатор кнопки Далее в форме "Для кого самокат"
     private final By buttonNext = By.className("Button_Middle__1CSJM");
+    //Локатор станции метро Спортивная
+    private static final By SPORTIVNAYA_METRO_STATION = By.xpath(".//li[@data-index='14']");
+    //Локатор станции метро Сокольники
+    private static final By SOKOLNIKI_METRO_STATION = By.xpath(".//li[@data-index='3']");
 
     public ScooterForWhomForm(WebDriver driver) {
         this.driver = driver;
@@ -74,7 +78,12 @@ public class ScooterForWhomForm {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         element.click();
     }
-
+    public static By getSportivnayaMetro() {
+        return SPORTIVNAYA_METRO_STATION;
+    }
+    public static By getSokolnikiMetro() {
+        return SOKOLNIKI_METRO_STATION;
+    }
     //Объединяем методы в шаг Page Object
     public void enterOrderDetails(String name, String lastName, String address, By metroStation, String phone) {
         waitForLoadHeader();

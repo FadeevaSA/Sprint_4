@@ -42,8 +42,8 @@ public class ScooterOrderTest {
     @Parameterized.Parameters(name = "Тест {index}")
     public static Object[][] getOrderDetails() {
         return new Object[][]{
-                {"Маша", "Петрова", "Молодежная 5", Constants.SPORTIVNAYA_METRO_STATION, "+77172400792", Constants.FIRST_TEST_DATE, Constants.THREE_RENTAL_DAYS},
-                {"Петя", "Иванов", "Левкова 34", Constants.SOKOLNIKI_METRO_STATION, "+77172400888", Constants.SECOND_TEST_DATE, Constants.TWO_RENTAL_DAYS},
+                {"Маша", "Петрова", "Молодежная 5", ScooterForWhomForm.getSportivnayaMetro(), "+77172400792", AboutRentForm.getDecember29(), AboutRentForm.getThreeRentalDays()},
+                {"Петя", "Иванов", "Левкова 34", ScooterForWhomForm.getSokolnikiMetro(), "+77172400888", AboutRentForm.getDecember31(), AboutRentForm.getTwoRentalDays()},
         };
     }
 

@@ -17,9 +17,33 @@ public class AboutRentForm {
     private final By confirmTheOrder = By.xpath(".//button[2][text()='Да']");
     //Локатор уведомления об успешном заказе
     private final By notificationOrderCompleted = By.className("Order_Text__2broi");
+    //Локатор даты 29 декабря 2024 в календаре поля Дата доставки
+    private static final By DECEMBER29_2024_TEST_DATE = By.xpath(".//div[@aria-label='Choose воскресенье, 29-е декабря 2024 г.']");
+    //Локатор трех дней аренды в поле Срок аренды
+    private static final By THREE_RENTAL_DAYS = By.xpath(".//div[text()='трое суток']");
+    //Локатор даты 31 декабря 2024 в календаре поля Дата доставки
+    private static final By DECEMBER31_2024_TEST_DATE = By.xpath(".//div[@aria-label='Choose вторник, 31-е декабря 2024 г.']");
+    //Локатор двух дней аренды в поле Срок аренды
+    private static final By TWO_RENTAL_DAYS = By.xpath(".//div[text()='двое суток']");
 
     public AboutRentForm(WebDriver driver) {
         this.driver = driver;
+    }
+
+    public static By getDecember29() {
+        return DECEMBER29_2024_TEST_DATE;
+    }
+
+    public static By getThreeRentalDays() {
+        return THREE_RENTAL_DAYS;
+    }
+
+    public static By getTwoRentalDays() {
+        return TWO_RENTAL_DAYS;
+    }
+
+    public static By getDecember31() {
+        return DECEMBER31_2024_TEST_DATE;
     }
 
     public void setDeliveryDate(By deliveryDate) {
