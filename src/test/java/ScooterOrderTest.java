@@ -24,26 +24,23 @@ public class ScooterOrderTest {
     private final By metroStation;
     //Текст поля Телефон
     private final String phone;
-    //Локатор даты доставки
-    private final By deliveryDate;
     //Локатор количества дней аренды самоката
     private final By numberOfRentalDays;
 
-    public ScooterOrderTest(String name, String lastName, String address, By metroStation, String phone, By deliveryDate, By numberOfRentalDays) {
+    public ScooterOrderTest(String name, String lastName, String address, By metroStation, String phone, By numberOfRentalDays) {
         this.name = name;
         this.lastName = lastName;
         this.address = address;
         this.metroStation = metroStation;
         this.phone = phone;
-        this.deliveryDate = deliveryDate;
         this.numberOfRentalDays = numberOfRentalDays;
     }
 
     @Parameterized.Parameters(name = "Тест {index}")
     public static Object[][] getOrderDetails() {
         return new Object[][]{
-                {"Маша", "Петрова", "Молодежная 5", ScooterForWhomForm.getSportivnayaMetro(), "+77172400792", AboutRentForm.getDecember29(), AboutRentForm.getThreeRentalDays()},
-                {"Петя", "Иванов", "Левкова 34", ScooterForWhomForm.getSokolnikiMetro(), "+77172400888", AboutRentForm.getDecember31(), AboutRentForm.getTwoRentalDays()},
+                {"Маша", "Петрова", "Молодежная 5", ScooterForWhomForm.getSportivnayaMetro(), "+77172400792", AboutRentForm.getThreeRentalDays()},
+                {"Петя", "Иванов", "Левкова 34", ScooterForWhomForm.getSokolnikiMetro(), "+77172400888", AboutRentForm.getTwoRentalDays()},
         };
     }
 
@@ -68,7 +65,7 @@ public class ScooterOrderTest {
 
         AboutRentForm objAboutRentForm = new AboutRentForm(driver);
         //Заполнить данные формы "Про аренду", подтвердить заказ и получить номер заказа
-        String orderNumber = objAboutRentForm.fillOutTheFormAndConfirmOrder(deliveryDate, numberOfRentalDays);
+        String orderNumber = objAboutRentForm.fillOutTheFormAndConfirmOrder(numberOfRentalDays);
         System.out.println(orderNumber);
         assertTrue("Уведомление об успешном заказе не найдено", orderNumber.contains("Номер заказа"));
 
@@ -86,7 +83,7 @@ public class ScooterOrderTest {
 
         AboutRentForm objAboutRentForm = new AboutRentForm(driver);
         //Заполнить данные формы "Про аренду", подтвердить заказ и получить номер заказа
-        String orderNumber = objAboutRentForm.fillOutTheFormAndConfirmOrder(deliveryDate, numberOfRentalDays);
+        String orderNumber = objAboutRentForm.fillOutTheFormAndConfirmOrder(numberOfRentalDays);
         System.out.println(orderNumber);
         assertTrue("Уведомление об успешном заказе не найдено", orderNumber.contains("Номер заказа"));
 

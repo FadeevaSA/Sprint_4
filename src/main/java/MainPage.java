@@ -14,6 +14,8 @@ public class MainPage {
     private final By orderButtonOnTop = By.xpath(".//div[@class='Header_Nav__AGCXC']/button[@class='Button_Button__ra12g']");
     //Локатор кнопки Заказать внизу страницы
     private final By orderButtonBottomOfThePage = By.className("Button_Middle__1CSJM");
+    //Строка локатора ответов
+    private final String answerLocator = ".//div[@aria-labelledby='accordion__heading-";
 
     //Ожидаемый текст ответов от первого до восьмого
     public static final String ANSWER_ABOUT_PAYMENT = "Сутки — 400 рублей. Оплата курьеру — наличными или картой.";
@@ -55,7 +57,7 @@ public class MainPage {
 
     //Получить текст ответа на выбранный вопрос
     public String getAnswer(int index) {
-        return driver.findElement(By.xpath(".//div[@aria-labelledby='accordion__heading-" + index + "']")).getText();
+        return driver.findElement(By.xpath(answerLocator + index + "']")).getText();
     }
 
     //Объединяем методы в шаг Page Object

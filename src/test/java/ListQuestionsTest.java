@@ -39,8 +39,8 @@ public class ListQuestionsTest {
 
     @Before
     public void start() {
-        //driver = new ChromeDriver();
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
+        //driver = new FirefoxDriver();
         driver.manage().window().maximize();
         //Открываем браузер
         driver.get(Constants.LINK_FOR_TEST);
